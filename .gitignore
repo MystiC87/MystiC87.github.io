@@ -1,0 +1,35 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.code-workspace
+*.suo
+*.user
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+coverage/
+
+# Local preview tools
+.jekyll-cache/
+.sass-cache/
+_site/
