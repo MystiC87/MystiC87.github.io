@@ -33,3 +33,6 @@ coverage/
 .jekyll-cache/
 .sass-cache/
 _site/
+
+# Private portfolio planning documents
+PORTFOLIO_PROJECT_PLAN.private.md
