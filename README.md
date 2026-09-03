@@ -18,6 +18,8 @@ python -m http.server 8000
 - `styles.css`: 색상, 타이포그래피, 반응형 레이아웃
 - `script.js`: 테마 전환, 스크롤 등장 효과, 연도 자동 표시
 - `assets/favicon.svg`: 브라우저 탭 아이콘
+- `assets/profile.webp`: 소개 영역의 4:5 프로필 사진(파일이 없으면 자리 표시자 표시)
+- `assets/about-workspace.jpg`: 소개 영역 하단의 비식별 개발 데스크 이미지
 - `.editorconfig`, `.gitattributes`: UTF-8 및 줄바꿈 형식 통일
 
 배포 전 `index.html`의 프로젝트 예시와 `your-email@example.com`을 실제 정보로 교체하세요.
