@@ -1,0 +1,18 @@
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>엔터 더 AC — MystiC87</title><meta name="description" content="Direct3D 9와 Direct3D 11을 지원하는 C++ 2D 액션 게임입니다. 렌더링, 충돌, 무기와 미션 시스템을 직접 구현했습니다."/><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="../styles.css"/><script src="../script.js" defer></script></head><body><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><a class="logo" href="../index.html">M87<span>.</span></a><nav class="site-nav" aria-label="주요 메뉴"><a href="../index.html#projects">전체 프로젝트</a><a href="../index.html#contact">연락처</a></nav><button class="theme-toggle" type="button" aria-label="색상 테마 전환"><span aria-hidden="true">◐</span></button></header><main id="main" class="case-study"><a class="text-link" href="../index.html#projects">← 전체 프로젝트</a><p class="eyebrow">CASE 02 · GRAPHICS / GAMEPLAY</p><h1>엔터 더 AC</h1><p class="case-intro">Direct3D 9와 Direct3D 11을 지원하는 C++ 2D 액션 게임입니다. 렌더링, 충돌, 무기와 미션 시스템을 직접 구현했습니다.</p>
+<section><h2>DX9 · DX11 렌더링 비교</h2><div class="render-comparison" data-comparison data-base="../assets/projects/framework/" style="--split:50%">
+              <div class="comparison-stage">
+                <img class="comparison-image" data-dx9 src="../assets/projects/framework/dx9-menu.webp" alt="메뉴 · Direct3D 9 실제 실행 화면" width="1264" height="682" />
+                <img class="comparison-image comparison-overlay" data-dx11 src="../assets/projects/framework/dx11-menu.webp" alt="메뉴 · Direct3D 11 실제 실행 화면" width="1264" height="682" />
+                <span class="comparison-label left">DX11</span><span class="comparison-label right">DX9</span>
+                <span class="comparison-divider" aria-hidden="true">↔</span>
+                <input class="comparison-range" type="range" min="0" max="100" value="50" disabled aria-label="DX11과 DX9 화면 비교 비율" />
+              </div>
+              <div class="comparison-selector" role="group" aria-label="비교 장면"><button type="button" class="comparison-option" data-scene="menu" data-title="메뉴" aria-pressed="true">메뉴</button><button type="button" class="comparison-option" data-scene="gameplay" data-title="플레이" aria-pressed="false">플레이</button></div>
+              <p class="comparison-status" aria-live="polite">메뉴 · 왼쪽 DX11 / 오른쪽 DX9</p>
+              <p class="media-note">같은 미션의 DX9·DX11 화면입니다. 별도로 촬영해 캐릭터 위치와 동작 시점에는 차이가 있습니다.</p>
+              <noscript><p>JavaScript를 켜면 장면 전환과 슬라이더를 사용할 수 있습니다. <a href="../assets/projects/framework/dx9-gameplay.webp">DX9 플레이</a> · <a href="../assets/projects/framework/dx11-gameplay.webp">DX11 플레이</a></p></noscript>
+            </div></section>
+<section><h2>게임 코드와 렌더러 분리</h2><p>게임과 HUD가 직접 Direct3D를 호출하면 백엔드 교체가 장면 코드 수정으로 이어집니다. Sprite·FillRect·Line·Text 네 종류의 공통 명령을 두고 각 백엔드가 이를 처리하도록 했습니다.</p><img class="case-diagram" src="../assets/projects/framework/architecture.svg" alt="Game과 HUDSnapshot → RenderContext와 RenderCommand → RenderSystem → DX9 또는 DX11" width="720" height="540"/></section>
+<section><h2>충돌과 객체 수명</h2><p>Collider를 상태 없는 기하 계층으로 두고 AABB, 원, 선분과 범위 판정을 공통 정의로 처리합니다. 게임 객체는 판정 대상을 선택하고 기하 연산은 Collider에 위임합니다.</p><p>장면·적·무기는 unique_ptr, 그래픽 리소스는 ComPtr로 관리합니다. 투사체는 비활성 슬롯을 재사용하고, CombatContext는 장면이 수명을 보장하는 객체를 연결합니다.</p></section>
+<section><h2>게임 루프</h2><p>게임 로직은 60Hz 고정 틱으로 갱신합니다. 카메라와 화면 표현, 렌더 주기는 따로 처리해 화면을 그리는 속도가 전투 계산에 영향을 주지 않도록 했습니다.</p></section>
+<p class="case-back"><a class="button" href="../index.html#projects">프로젝트 목록으로 돌아가기</a></p></main><footer class="site-footer"><p>© <span id="year"></span> MystiC87</p><a href="../index.html#contact">연락처 →</a></footer></body></html>

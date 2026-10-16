@@ -4,6 +4,7 @@ dist/
 build/
 .cache/
 .parcel-cache/
+tools/
 
 # Local environment files
 .env
